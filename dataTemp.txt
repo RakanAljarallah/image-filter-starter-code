@@ -1,0 +1,23 @@
+CREATE TABLE "timeline_post" (
+  "timeline_post_id" int NOT NULL AUTO_INCREMENT,
+  "timeline_parent_post_id" int DEFAULT NULL,
+  "reference_shared_from_post_id" int DEFAULT NULL,
+  "reference_shared_from_post_username" varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  "reference_user_id" int DEFAULT NULL,
+  "content" text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  "number_of_comments" int DEFAULT '0',
+  "number_of_likes" int DEFAULT '0',
+  "is_featured_post" int NOT NULL DEFAULT '0',
+  "posted_on" timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  "update_at" timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  "published_at" timestamp NULL DEFAULT NULL,
+  "is_deleted" int NOT NULL DEFAULT '0',
+  "is_pinned" int NOT NULL DEFAULT '0',
+  "is_published" int NOT NULL DEFAULT '1',
+  "views" int NOT NULL DEFAULT '0',
+  "impressions" int NOT NULL DEFAULT '0',
+  "is_draft" int NOT NULL DEFAULT '0',
+  PRIMARY KEY ("timeline_post_id"),
+  KEY "timeline_parent_post_id" ("timeline_parent_post_id"),
+  KEY "idx_post_is_deleted" ("is_deleted")
+) ENGINE=InnoDB AUTO_INCREMENT=3761 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
